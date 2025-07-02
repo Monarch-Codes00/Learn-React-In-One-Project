@@ -1,9 +1,13 @@
 import "../css/MovieCard.css"
 import { useMovieContext } from "../contexts/MovieContext"
+import { useUserContext } from "../contexts/UserContext"
+import { useNavigate } from "react-router-dom";
 
 function MovieCard({movie}) {
     const {isFavorite, addToFavorites, removeFromFavorites} = useMovieContext()
+    const { addWatchedMovie } = useUserContext()
     const favorite = isFavorite(movie.id)
+    const navigate = useNavigate();
 
     function onFavoriteClick(e) {
         e.preventDefault()
@@ -11,12 +15,24 @@ function MovieCard({movie}) {
         else addToFavorites(movie)
     }
 
-    return <div className="movie-card">
+    function onWatchedClick(e) {
+        e.preventDefault()
+        addWatchedMovie(movie)
+    }
+
+    function onCardClick() {
+        navigate(`/movie/${movie.id}`);
+    }
+
+    return <div className="movie-card" onClick={onCardClick} style={{ cursor: "pointer" }}>
         <div className="movie-poster">
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
             <div className="movie-overlay">
                 <button className={`favorite-btn ${favorite ? "active" : ""}`} onClick={onFavoriteClick}>
                     ♥
+                </button>
+                <button className="watched-btn" onClick={onWatchedClick}>
+                    Mark as Watched
                 </button>
             </div>
         </div>
@@ -27,4 +43,4 @@ function MovieCard({movie}) {
     </div>
 }
 
-export default MovieCard
+export default MovieCard;

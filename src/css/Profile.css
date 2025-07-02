@@ -1,0 +1,68 @@
+.profile {
+  display: flex;
+  color: #fff;
+  background-color: #0d253f;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.profile-sidebar {
+  width: 250px;
+  padding-right: 2rem;
+  border-right: 1px solid #204060;
+}
+
+.profile-sidebar h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.profile-user-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.profile-logout-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #01b4e4;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.profile-main {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.profile-section {
+  margin-bottom: 2rem;
+}
+
+.profile-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #01b4e4;
+  padding-bottom: 0.5rem;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.movie-card-summary img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.movie-card-summary p {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
