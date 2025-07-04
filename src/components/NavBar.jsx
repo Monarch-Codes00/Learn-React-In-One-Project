@@ -12,6 +12,7 @@ function NavBar() {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
@@ -20,6 +21,10 @@ function NavBar() {
 
   const toggleSearch = () => {
     setShowSearch((prev) => !prev);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
   };
 
   const handleSearchSubmit = async (e) => {
@@ -33,6 +38,7 @@ function NavBar() {
       navigate(`/?search=${encodeURIComponent(searchQuery)}`);
       setShowSearch(false);
       setSearchQuery("");
+      setMenuOpen(false);
     } catch (err) {
       console.error(err);
     } finally {
@@ -40,9 +46,10 @@ function NavBar() {
     }
   };
 
-  // Close search bar if route changes and search bar is open
+  // Close search bar and menu if route changes and search bar is open
   useEffect(() => {
     setShowSearch(false);
+    setMenuOpen(false);
   }, [location.pathname]);
 
   return (
@@ -53,24 +60,33 @@ function NavBar() {
             Netflix
           </Link>
         </div>
-        <div className="navbar-links">
+        <button
+          className={`hamburger-menu${menuOpen ? " open" : ""}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
+        <div className={`navbar-links${menuOpen ? " open" : ""}`}>
           {user ? (
             <>
-              <Link to="/" className="nav-link">
+              <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
                 Home
               </Link>
-              <Link to="/favorites" className="nav-link">
+              <Link to="/favorites" className="nav-link" onClick={() => setMenuOpen(false)}>
                 My List
               </Link>
-              <Link to="/profile" className="nav-link">
+              <Link to="/profile" className="nav-link" onClick={() => setMenuOpen(false)}>
                 Profile
               </Link>
-              <button className="nav-link logout-button" onClick={handleLogout}>
+              <button className="nav-link logout-button" onClick={() => {handleLogout(); setMenuOpen(false);}}>
                 Logout
               </button>
               <button
                 className="nav-link search-icon-button"
-                onClick={toggleSearch}
+                onClick={() => {toggleSearch(); setMenuOpen(false);}}
                 aria-label="Toggle Search"
               >
                 🔍
@@ -78,10 +94,10 @@ function NavBar() {
             </>
           ) : (
             <>
-              <Link to="/signup" className="nav-link">
+              <Link to="/signup" className="nav-link" onClick={() => setMenuOpen(false)}>
                 Sign Up
               </Link>
-              <Link to="/login" className="nav-link">
+              <Link to="/login" className="nav-link" onClick={() => setMenuOpen(false)}>
                 Login
               </Link>
             </>

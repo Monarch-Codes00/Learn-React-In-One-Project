@@ -9,7 +9,7 @@
   padding: 3rem 6rem;
   box-sizing: border-box;
   margin-top: 60px;
-  z-index: 2;
+  z-index: 0;
 }
 
 .hero-content {
