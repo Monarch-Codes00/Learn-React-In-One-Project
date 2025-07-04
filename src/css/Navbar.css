@@ -115,7 +115,7 @@
   transform: rotate(-45deg);
 }
 
-@media (max-width: 420px) {
+@media (max-width: 430px) {
   .hamburger-menu {
     display: flex;
     ;

@@ -4,7 +4,7 @@
   background-color: #141414;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 350px;
- min-width: 200px;
+  min-width: 200px;
 
   display: flex;
   padding: 0;
@@ -128,5 +128,62 @@
     width: 32px;
     height: 32px;
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .movie-card {
+    height: 280px;
+    min-width: 150px;
+    margin-left: 20px;
+  }
+  .movie-info h3 {
+    font-size: 1rem;
+  }
+  .movie-info p {
+    font-size: 0.8rem;
+  }
+  .favorite-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .movie-card {
+    height: 260px;
+    min-width: 140px;
+    margin-left: 15px;
+  }
+  .movie-info h3 {
+    font-size: 0.9rem;
+  }
+  .movie-info p {
+    font-size: 0.75rem;
+  }
+  .favorite-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 362px) {
+  .movie-card {
+    height: 240px;
+    min-width: 130px;
+    margin-left: 10px;
+  }
+  .movie-info h3 {
+    font-size: 0.85rem;
+  }
+  .movie-info p {
+    font-size: 0.7rem;
+  }
+  .favorite-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
   }
 }
