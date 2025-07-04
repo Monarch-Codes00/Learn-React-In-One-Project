@@ -2,6 +2,9 @@
   padding: 2rem;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .favorites h2 {
@@ -33,6 +36,13 @@
   line-height: 1.6;
 }
 
+.movies-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-left: -80px;
+  padding: 0 4rem;
+}
 
 /* Animation for new favorites being added */
 @keyframes fadeIn {
