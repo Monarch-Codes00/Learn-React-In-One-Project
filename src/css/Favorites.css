@@ -44,6 +44,15 @@
   padding: 0 4rem;
 }
 
+@media (max-width:390px){
+  .movies-grid{
+    margin-left: -100px;
+  }
+  .favorites h2 {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+}
 /* Animation for new favorites being added */
 @keyframes fadeIn {
   from {
